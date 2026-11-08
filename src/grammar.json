@@ -1030,6 +1030,10 @@
         },
         {
           "type": "STRING",
+          "value": "comptime"
+        },
+        {
+          "type": "STRING",
           "value": "const"
         },
         {
@@ -1062,6 +1066,10 @@
         },
         {
           "type": "STRING",
+          "value": "emit"
+        },
+        {
+          "type": "STRING",
           "value": "enum"
         },
         {
@@ -1079,10 +1087,6 @@
         {
           "type": "STRING",
           "value": "for"
-        },
-        {
-          "type": "STRING",
-          "value": "goto"
         },
         {
           "type": "STRING",

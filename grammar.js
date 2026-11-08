@@ -57,7 +57,6 @@ const KEYWORDS = [
   "extern",
   "false",
   "for",
-  "goto",
   "if",
   "import",
   "inline",

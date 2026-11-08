@@ -416,6 +416,10 @@
     "extra": true
   },
   {
+    "type": "comptime",
+    "named": false
+  },
+  {
     "type": "const",
     "named": false
   },
@@ -448,6 +452,10 @@
     "named": false
   },
   {
+    "type": "emit",
+    "named": false
+  },
+  {
     "type": "enum",
     "named": false
   },
@@ -477,10 +485,6 @@
   },
   {
     "type": "func",
-    "named": false
-  },
-  {
-    "type": "goto",
     "named": false
   },
   {
