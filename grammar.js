@@ -136,12 +136,12 @@ module.exports = grammar({
         $.punctuation,
       ),
 
-    // `func name`, `func Type::name`, and `func Type[T]::name`.
-    // Brackets before `::` stay in this rule so the name is the method, not the type.
-    // `func name[T type]` has the same prefix and no `::` after the brackets.
+    // `func name`, `func Type::name`, and `func Type<T>::name`.
+    // The list before `::` stays in this rule so the name is the method, not the type.
+    // `func name<T type>` has the same prefix and no `::` after the list.
     // Both stay, at the same precedence, so `type` is still a keyword there.
     // Dynamic precedence keeps the method name when `::` is present.
-    // The brackets are not one token. `func (` is a function type, so `func`
+    // The list is not one token. `func (` is a function type, so `func`
     // is then only a keyword.
     function_definition: ($) =>
       choice(
@@ -152,9 +152,9 @@ module.exports = grammar({
             seq(
               "func",
               field("type", $.identifier),
-              "[",
+              "<",
               repeat($._type_parameter),
-              "]",
+              ">",
               "::",
               field("name", $.identifier),
             ),
@@ -165,7 +165,7 @@ module.exports = grammar({
         prec(0, alias("func", $.keyword)),
       ),
 
-    // A type-parameter list on a method: `Vec[T]`, `Buf[N, T]`, `Box[T type]`.
+    // The names in a method's list: `Vec<T>`, `Buf<N, T>`. `>` ends the list, so it is not an operator here.
     _type_parameter: ($) =>
       choice(
         $.identifier,
@@ -173,7 +173,7 @@ module.exports = grammar({
         $.builtin_type,
         $.keyword,
         alias("type", $.keyword),
-        $.operator,
+        alias(choice("*", "?", "..."), $.operator),
         ",",
         seq("[", repeat($._type_parameter), "]"),
       ),

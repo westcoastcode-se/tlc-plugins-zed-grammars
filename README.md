@@ -10,7 +10,7 @@ A `func` or `type` followed by a name is a node, so an editor can list it.
 
 - `func main` keeps the name `main`.
 - `func Point::sum` keeps the type `Point` and the name `sum`.
-- `func Box[T]::from` keeps the name `Box`. The bracket list is ordinary tokens, because that list can contain the keyword `type` (`func id[T type]`).
+- `func Box<T>::from` keeps the type `Box` and the name `from`. `func id<T type>` keeps the name `id`, and its list is ordinary tokens, because that list can contain the keyword `type`.
 - `func (` is a function type. `func` is only a keyword there.
 - `T type` is the keyword `type`, not a type declaration.
 

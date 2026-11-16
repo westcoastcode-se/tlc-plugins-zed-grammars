@@ -81,7 +81,7 @@
                 },
                 {
                   "type": "STRING",
-                  "value": "["
+                  "value": "<"
                 },
                 {
                   "type": "REPEAT",
@@ -92,7 +92,7 @@
                 },
                 {
                   "type": "STRING",
-                  "value": "]"
+                  "value": ">"
                 },
                 {
                   "type": "STRING",
@@ -208,8 +208,26 @@
           "value": "keyword"
         },
         {
-          "type": "SYMBOL",
-          "name": "operator"
+          "type": "ALIAS",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "*"
+              },
+              {
+                "type": "STRING",
+                "value": "?"
+              },
+              {
+                "type": "STRING",
+                "value": "..."
+              }
+            ]
+          },
+          "named": true,
+          "value": "operator"
         },
         {
           "type": "STRING",

@@ -6,15 +6,15 @@ func Point::sum(self this, extra i32) i32 {
     return self.x + extra;
 }
 
-func Box[T]::from(value T) Box[T] {
+func Box<T>::from(value T) Box<T> {
     return value;
 }
 
-func Buf[N, T]::width() i32 {
+func Buf<N, T>::width() i32 {
     return N;
 }
 
-func id[T type, ...U](value T, rest U) T {
+func id<T type, ...U>(value T, rest U) T {
     var fp func (i32) i32 = id;
     var wide = 2.5;
     var narrow = 1.5f;
@@ -37,7 +37,8 @@ world`;
     n ^= 5;
     // comment
     /* block */
-    type Box[T type] struct {
+    type Box<T type> struct {
+        nested Box<Box<i32>>;
         value T;
     }
     type PairFn func (i32) (i32, i32);
